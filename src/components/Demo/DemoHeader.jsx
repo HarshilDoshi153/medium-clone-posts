@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { nav } from '../../data';
+import Auth from './Auth/AUth';
 
 const DemoHeader = () => {
   const [isActive, setIsActive] = useState(false);
@@ -26,6 +27,7 @@ const DemoHeader = () => {
         <div className='relative'>
             <button className='hidden text-sm sm:flex items-center gap-5'>Sign In</button>
         </div>
+        <Auth/>
         <button className={`bg-black text-white rounded-full px-3 p-1 text-sm font-medium ${isActive ? "bg-green-600" : "bg-banner"}`}>Get Started</button>
       </div>
       </div>

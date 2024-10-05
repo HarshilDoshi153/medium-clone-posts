@@ -2,9 +2,120 @@ import React from 'react'
 
 const Posts = () => {
   return (
-    <div>
-      Posts
-    </div>
+    <>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      <div>Hello Posts</div>
+      </>
   )
 }
 

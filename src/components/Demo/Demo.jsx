@@ -12,7 +12,7 @@ const Demo = () => {
         <div className='flex-[1.5]'>
           <Posts />
         </div>
-        <div className='flex-[1] h-full relative'>
+        <div className='flex-[1] relative'>
           <Discover />
         </div>
       </div>

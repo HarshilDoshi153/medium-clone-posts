@@ -9,7 +9,7 @@ const DemoHeader = () => {
 
   useEffect(()=>{
     const scrollMe = () =>{
-      window.scrollY > 50 ? setIsActive(true) : setIsActive(false);
+      window.scrollY > 500 ? setIsActive(true) : setIsActive(false);
     };
     window.addEventListener("scroll", scrollMe);
   },[])

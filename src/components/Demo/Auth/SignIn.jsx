@@ -11,8 +11,8 @@ const SignIn = ({setSignReq}) => {
         magic link to your inbox.
       </p>
       <form className="flex flex-col gap-2">
-        <Input type="email" title="email" />
-        <Input type="password" title="password" />
+        <Input type="email" title="Email" />
+        <Input type="password" title="Password" />
         <button
           className={`px-4 py-1 my-3 text-sm rounded-full bg-green-700
         hover:bg-green-800 text-white w-fit mx-auto`}>

@@ -5,6 +5,7 @@ import Auth from './Auth/AUth';
 
 const DemoHeader = () => {
   const [isActive, setIsActive] = useState(false);
+  const [modal, setModal] = useState(false);
 
   useEffect(()=>{
     const scrollMe = () =>{
@@ -25,9 +26,9 @@ const DemoHeader = () => {
           ))}
         </div>
         <div className='relative'>
-            <button className='hidden text-sm sm:flex items-center gap-5'>Sign In</button>
+            <button onClick={()=> setModal(true)}className='hidden text-sm sm:flex items-center gap-5'>Sign In</button>
         </div>
-        <Auth/>
+        <Auth modal={modal} setModal={setModal}/>
         <button className={`bg-black text-white rounded-full px-3 p-1 text-sm font-medium ${isActive ? "bg-green-600" : "bg-banner"}`}>Get Started</button>
       </div>
       </div>

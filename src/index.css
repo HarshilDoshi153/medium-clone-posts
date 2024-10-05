@@ -9,3 +9,7 @@
 .size{
   @apply w-[95%] md:w-[90%] mx-auto;
 }
+
+body{
+  @apply font-texts
+}

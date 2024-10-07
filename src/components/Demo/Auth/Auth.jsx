@@ -4,19 +4,40 @@ import { LiaTimesSolid } from "react-icons/lia";
 import { MdFacebook } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineMail } from "react-icons/ai";
+import {auth, db, provider} from '../../../firebase/firebase.js'
 import SignIn from './SIgnIn';
 import SignUp from './SignUp';
 import { signInWithPopup } from 'firebase/auth';
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Auth = ({modal, setModal}) => {
     const [createUser, setCreateUser] = useState(false);
     const [signReq, setSignReq] = useState("");
-
+    const navigate = useNavigate();
     const googleAuth = async() =>{
         try {
-            const createUser = await signInWithPopup()
+            const createUser = await signInWithPopup(auth, provider);
+            const newUser = createUser.user;
+
+            const ref = doc(db, "users", newUser.uid);
+            const userDoc = await getDoc(ref);
+            if(!userDoc.exists()){
+                await setDoc(ref, {
+                    userId: newUser.uid,
+                    userName: newUser.displayName,
+                    email: newUser.email,
+                    userImg: newUser.photoURL,
+                    bio: ""
+                });
+                navigate("/");
+                toast.success("User has been created");
+                setModal(false);
+            }
+
         } catch (error) {
-            
+            console.log(error);
         }
     }
 
@@ -31,7 +52,7 @@ const Auth = ({modal, setModal}) => {
                         <>
                             <h2 className='text-2xl pt-[5rem]'>{createUser ? "Join Medium." : "Welcome Back !"}</h2>
                             <div className='flex flex-col gap-5 w-fit mx-auto'>
-                                <Button icon={<FcGoogle className='text-2xl' />} text={createUser ? "Sign Up with Google" : "Sign In with Google"} />
+                                <Button click={()=> googleAuth()} icon={<FcGoogle className='text-2xl' />} text={createUser ? "Sign Up with Google" : "Sign In with Google"} />
                                 <Button icon={<MdFacebook className='text-2xl text-blue-700' />} text={createUser ? "Sign Up with Facebook" : "Sign In with FaceBook"} />
                                 <Button click={() => setSignReq(createUser ? "sign-up" : "sign-in")} icon={<AiOutlineMail className='text-2xl' />} text={createUser ? "Sign Up with Email" : "Sign In with Email"} />
                             </div>

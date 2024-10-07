@@ -6,10 +6,19 @@ import { FcGoogle } from "react-icons/fc";
 import { AiOutlineMail } from "react-icons/ai";
 import SignIn from './SIgnIn';
 import SignUp from './SignUp';
+import { signInWithPopup } from 'firebase/auth';
 
 const Auth = ({modal, setModal}) => {
     const [createUser, setCreateUser] = useState(false);
     const [signReq, setSignReq] = useState("");
+
+    const googleAuth = async() =>{
+        try {
+            const createUser = await signInWithPopup()
+        } catch (error) {
+            
+        }
+    }
 
     const hidden = modal ? "visible opacity-100" : "invisible opacity-0";
 

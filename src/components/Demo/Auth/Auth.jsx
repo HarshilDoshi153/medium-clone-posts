@@ -32,7 +32,7 @@ const Auth = ({modal, setModal}) => {
                     bio: ""
                 });
                 navigate("/");
-                toast.success("User has been created");
+                toast.success("User has been signed in");
                 setModal(false);
             }
 

@@ -1,8 +1,72 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {MdKeyboardArrowLeft} from 'react-icons/md';
 import Input from '../../../utils/input';
+import { toast } from 'react-toastify';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import {auth, db, provider} from '../../../firebase/firebase.js';
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = ({setSignReq}) => {
+  const [form, setForm] = useState({
+    username: "",
+    email: "",
+    password: "",
+    repassword: "",
+  })
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Check if any field is empty
+    if (!form.username || !form.email || !form.password || !form.repassword) {
+      toast.error("All fields are required");
+      return;
+    }
+  
+    // Check if passwords match
+    if (form.password !== form.repassword) {
+      toast.error("The passwords are not matching");
+      return;
+    }
+  
+    try {
+      const { user } = await createUserWithEmailAndPassword(auth, form.email, form.password);
+      const ref = doc(db, "users", user.uid);
+      const userDoc = await getDoc(ref);
+      if (!userDoc.exists()) {
+        await setDoc(ref, {
+          userId: user.uid,
+          userName: form.username,
+          email: form.email,
+          userImg: "",
+          bio: ""
+        });
+        setForm({
+          username:"",
+          password:"",
+          email:"",
+          repassword:""
+        })
+        navigate("/");
+        toast.success("User has been created");
+      }
+    } catch (error) {
+      // Handle specific Firebase errors
+      if (error.code === 'auth/email-already-in-use') {
+        // await signOut(auth);
+        toast.error("User is Signed Out");
+      } else if (error.code === 'auth/weak-password') {
+        toast.error("The password is too weak. Please enter a stronger password.");
+      } else {
+        toast.error(error.message);
+      }
+    }
+    finally{
+      
+    }
+  };
+  
   return (
     <div className="size mt-[6rem] text-center">
       <h2 className="text-3xl">Sign Up with email</h2>
@@ -10,11 +74,11 @@ const SignUp = ({setSignReq}) => {
         Enter the email address associated with your account, and we’ll send a
         magic link to your inbox.
       </p>
-      <form className="flex flex-col gap-2">
-        <Input type="text" title="Username" />
-        <Input type="email" title="Email" />
-        <Input type="password" title="Password" />
-        <Input type="password" title="Repassword" />
+      <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+        <Input form={form} setForm={setForm} type="text" title="username" />
+        <Input form={form} setForm={setForm} type="email" title="email" />
+        <Input form={form} setForm={setForm} type="password" title="password" />
+        <Input form={form} setForm={setForm} type="password" title="repassword" />
         <button
           className={`px-4 py-1 my-3 text-sm rounded-full bg-green-700
         hover:bg-green-800 text-white w-fit mx-auto`}>

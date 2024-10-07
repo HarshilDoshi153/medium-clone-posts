@@ -6,9 +6,8 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 const BlogContext = createContext();
 const Context = ({children}) => {
     const [currentUser, setCurrentUser] = useState();
-    const [loader, setLoader] = useState(false);
+    const [loader, setLoader] = useState(true);
     useEffect(()=>{
-        setLoader(true)
         const unsubscribe = onAuthStateChanged(auth, (user)=>{
             if(user){
                 setCurrentUser(user);

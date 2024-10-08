@@ -5,7 +5,7 @@ import { MdFacebook } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineMail } from "react-icons/ai";
 import {auth, db, provider} from '../../../firebase/firebase.js'
-import SignIn from './SIgnIn';
+import SignIn from './SignIn';
 import SignUp from './SignUp';
 import { signInWithPopup } from 'firebase/auth';
 import { doc, getDoc, setDoc } from "firebase/firestore";

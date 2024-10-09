@@ -44,7 +44,7 @@ const Auth = ({modal, setModal}) => {
     const hidden = modal ? "visible opacity-100" : "invisible opacity-0";
 
     return (
-        <Modal modal={modal} setModal={setModal} hidden={hidden}>
+        <Modal modal={modal} setModal={setModal}>
             <section className={` border z-50 fixed top-0 bottom-0 left-0 md:left-[10rem] bg-white right-0 md:right-[10rem] flex justify-center py-24 overflow-auto shadows ${hidden} transition-all duration-500`}>
                 <button onClick={()=> setModal(false)} className='absolute top-8 right-8 text-2xl hover:opacity-50'><LiaTimesSolid /></button>
                 <div className='flex flex-col items-center gap-[3rem]'>

@@ -30,13 +30,13 @@ const HomeHeader = () => {
           <Link to={"/notifications"} className='md:flex items-center gap-1 text-black hover:text-banner'>
             <span className='text-3xl'><IoMdNotificationsOutline /></span>
           </Link>
-          <div  onClick={()=> setModal(true)} className='flex items-center relative cursor-pointer'>
-            <img className='w-9 rounded-full  object-cover' src='src\assets\profile.jpg' alt='Profile' />
+          <div  className='flex items-center relative cursor-pointer'>
+            <img onClick={()=> setModal(true)} className='w-9 rounded-full  object-cover' src='src\assets\profile.jpg' alt='Profile' />
             <span className='text-black hover:text-banner'>
               <MdKeyboardArrowDown/>
             </span>
             <Modal modal={modal} setModal={setModal}>
-              <div className={`${modal ? "visible opacity-100%":"invisible opacity-0"} transition-all duration-500`}>
+              <div className={`${modal ? "visible opacity-100%":"invisible opacity-0"} transition-all duration-200`}>
                 <UserModal/>
               </div>
             </Modal>

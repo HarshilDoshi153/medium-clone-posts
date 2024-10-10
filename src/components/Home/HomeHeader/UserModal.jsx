@@ -9,7 +9,7 @@ import { secretEmail } from "../../../utils/helper";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../firebase/firebase";
 
-const UserModal = () => {
+const UserModal = ({setModal}) => {
     const { currentUser } = Blog();
     const userModal = [
         {
@@ -43,7 +43,7 @@ const UserModal = () => {
             </Link>
             <div className='border-b'>
                 {userModal.map((item, i) => (
-                    <Link key={i} to={item.path}>
+                    <Link onClick={()=>setModal(false)} key={i} to={item.path}>
                         <div className='p-2 flex text-lg gap-3 text-black hover:text-banner items-center'>
                             <div className='p-1 flex text-2xl gap-3'>
                                 {item.icon}

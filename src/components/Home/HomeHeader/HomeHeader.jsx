@@ -11,6 +11,7 @@ import UserModal from './UserModal';
 
 const HomeHeader = () => {
   const [modal, setModal] = useState(false);
+  const [searchModal, setSearchModal] = useState(false);
   return (
     <header className='border-b border-gray-400'>
       <div className='size h-[60px] flex items-center justify-between'>
@@ -18,9 +19,14 @@ const HomeHeader = () => {
           <Link to={"/"}>
             <span className='text-7xl'><BsMedium /></span>
           </Link>
-          <Search />
+          <Search modal={searchModal} setModal={setSearchModal}/>
         </div>
-        <div className='flex items-center  gap-3'>
+        <div className='flex items-center gap-3'>
+          <span 
+            onClick={()=> setSearchModal(true)}
+            className='flex sm:hidden text-3xl text-black cursor-pointer hover:text-banner'>
+            <CiSearch/>
+          </span>
           <Link to={"/write"} className='hidden md:flex items-center gap-1 text-black hover:text-banner'>
             <span className='text-3xl'>
               <LiaEditSolid />
@@ -37,7 +43,7 @@ const HomeHeader = () => {
             </span>
             <Modal modal={modal} setModal={setModal}>
               <div className={`${modal ? "visible opacity-100%":"invisible opacity-0"} transition-all duration-200`}>
-                <UserModal/>
+                <UserModal setModal={setModal}/>
               </div>
             </Modal>
           </div>

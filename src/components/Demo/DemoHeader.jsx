@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { nav } from '../../data';
-import Auth from './Auth/AUth';
+import Auth from './Auth/Auth';
 
 const DemoHeader = () => {
   const [isActive, setIsActive] = useState(false);

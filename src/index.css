@@ -25,3 +25,8 @@ body{
       scrollbar-width: none;  /* Firefox */
 }
 }
+
+.write .ql-editor{
+  font-size: 1.2rem !important;
+  padding: 0 !important;
+}

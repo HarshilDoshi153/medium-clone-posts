@@ -65,7 +65,6 @@ const Preview = ({ setPublish, title, description }) => {
         finally{
             setLoading(false);
         }
-
     }
     return (
         <section className="absolute inset-0 bg-white z-30">

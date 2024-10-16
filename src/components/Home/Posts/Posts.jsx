@@ -1,6 +1,6 @@
 import React from 'react'
-import useFetch from '../../hooks/useFetch'
-import Loading from '../Loading';
+import useFetch from '../../hooks/useFetch';
+import Loading from '../../Demo/Loading';
 import PostCard from './PostCard';
 
 const Posts = () => {

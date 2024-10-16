@@ -1,8 +1,8 @@
 import React from 'react'
 import Banner from './Banner'
-import Posts from './Components/Posts'
 import Trending from './Trending'
 import Discover from './Components/Discover'
+import Posts from '../Home/Posts/Posts'
 const Demo = () => {
   return (
     <>

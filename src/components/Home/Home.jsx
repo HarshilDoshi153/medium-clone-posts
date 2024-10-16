@@ -1,5 +1,5 @@
 import React from 'react'
-import Posts from '../Demo/Components/Posts'
+import Posts from './Posts/Posts'
 import Follow from './UsersToFollow/Follow'
 
 const Home = () => {

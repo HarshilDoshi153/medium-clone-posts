@@ -32,7 +32,7 @@ const Preview = ({ setPublish, title, description }) => {
     const handleClick = () => {
         imageRef.current.click();
     }
-    const handleSubmit = async() => {
+    const handleSubmit = async () => {
         try {
             setLoading(true);
             if (title === "" || description === "" || tags.length === 0) {
@@ -41,28 +41,30 @@ const Preview = ({ setPublish, title, description }) => {
             if (title.length < 15) {
                 toast.error("The title must be aleast 15 letters!")
             }
-            const collections = collection(db, "posts");
-            const storageRef = ref(storage, `image/${preview.photo.name}`);
-            await uploadBytes(storageRef, preview?.photo);
+            else {
+                const collections = collection(db, "posts");
+                const storageRef = ref(storage, `image/${preview.photo.name}`);
+                await uploadBytes(storageRef, preview?.photo);
 
-            const imageUrl = await getDownloadURL(storageRef);
+                const imageUrl = await getDownloadURL(storageRef);
 
-            await addDoc(collections, {
-                UserId: currentUser?.uid,
-                title: title,
-                description,
-                tags,
-                postImg: imageUrl,
-                created: Date.now(),
-                pageViews: 0
-            })
-            toast.success("Post has been created");
-            navigate("/")
+                await addDoc(collections, {
+                    UserId: currentUser?.uid,
+                    title: title,
+                    description,
+                    tags,
+                    postImg: imageUrl,
+                    created: Date.now(),
+                    pageViews: 0
+                })
+                toast.success("Post has been created");
+                navigate("/")
+            }
         }
         catch (error) {
             toast.error(error.message);
         }
-        finally{
+        finally {
             setLoading(false);
         }
     }

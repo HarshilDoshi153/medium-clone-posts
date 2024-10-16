@@ -1,121 +1,14 @@
 import React from 'react'
+import useFetch from '../../hooks/useFetch'
+import Loading from '../Loading';
+import PostCard from './PostCard';
 
 const Posts = () => {
+  const {data, loading} = useFetch("posts");
   return (
-    <>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      <div>Hello Posts</div>
-      </>
+    <section className='flex flex-col gap-[2.5rem]'>
+      {loading ? <Loading/> : data.map((post,i) => <PostCard post={post} key={i}/>)}
+    </section>
   )
 }
 

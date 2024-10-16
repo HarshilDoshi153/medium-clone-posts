@@ -1,10 +1,18 @@
 import React from 'react'
+import Posts from '../Demo/Components/Posts'
+import Follow from './UsersToFollow/Follow'
 
 const Home = () => {
   return (
-    <div className='w-100 h-100 bg-banner'>
-      Home
-    </div>
+    <section className='size flex gap-[5rem] relative'>
+      <div className='flex-[2] py-10 mb-[4rem]'>
+        <Posts/>
+      </div>
+      <div className='hidden md:inline-block md:w-[21rem] p-7 border-l border-gray-300'>
+        <h3>Who to Follow? </h3>
+        <Follow/>
+      </div>
+    </section>
   )
 }
 

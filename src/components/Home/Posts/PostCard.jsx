@@ -5,7 +5,6 @@ import SavedPost from './Actions/SavedPost';
 
 const PostCard = ({ post }) => {
     const { title, description, postImg, created, id: id, UserId } = post;
-    console.log(created);
     const { data, loading } = useFetch("users")
     const getUserData = data && data.find((user) => user?.id === UserId)
     return (
@@ -19,7 +18,7 @@ const PostCard = ({ post }) => {
                     </div>
                     <div className='flex justify-between gap-4 mt-auto'>
                         <p className='text-xs text-gray-600 py-2'>{readTime({ __html: description })} min read . {formatDate(created)}</p>
-                        <div className='text-md py-2'><SavedPost/></div>
+                        <div className='text-md py-2'><SavedPost post={post}/></div>
                     </div>
                 </div>
                 <div className='flex'>

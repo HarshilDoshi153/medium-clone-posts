@@ -2,14 +2,16 @@ import React from 'react'
 import useFetch from '../../hooks/useFetch';
 import { formatDate, readTime } from '../../../utils/helper';
 import SavedPost from './Actions/SavedPost';
+import { useNavigate } from 'react-router-dom';
 
 const PostCard = ({ post }) => {
     const { title, description, postImg, created, id: id, UserId } = post;
     const { data, loading } = useFetch("users")
     const getUserData = data && data.find((user) => user?.id === UserId)
+    const navigate = useNavigate();
     return (
         <>
-            <div className='flex flex-col sm:flex-row gap-4 cursor-pointer border-b py-2 border-gray-400'>
+            <div onClick={() => navigate(`/post/${id}`)} className='flex flex-col sm:flex-row gap-4 cursor-pointer border-b py-2 border-gray-400'>
                 <div className='flex-[2.5rem] flex flex-col justify-between'>
                     <div>
                         <p className='pb-2 font-semibold capitalize'>{getUserData.userName}</p>

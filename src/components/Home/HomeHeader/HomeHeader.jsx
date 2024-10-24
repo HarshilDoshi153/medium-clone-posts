@@ -10,6 +10,7 @@ import Modal from '../../../utils/Modal';
 import UserModal from './UserModal';
 import Preview from './Write/Preview';
 import { Blog } from '../../../Context/Context';
+import useFetch from '../../hooks/useFetch';
 
 const HomeHeader = () => {
   const [modal, setModal] = useState(false);

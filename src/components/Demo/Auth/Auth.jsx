@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Modal from '../../../utils/Modal'
 import { LiaTimesSolid } from "react-icons/lia";
 import { MdFacebook } from "react-icons/md";
@@ -42,6 +42,20 @@ const Auth = ({modal, setModal}) => {
     }
 
     const hidden = modal ? "visible opacity-100" : "invisible opacity-0";
+
+    // Handle scrolling based on editModal state
+  useEffect(() => {
+    if (modal) {
+      document.body.style.overflow = "hidden"; // Disable scrolling
+    } else {
+      document.body.style.overflow = "auto"; // Enable scrolling
+    }
+
+    // Cleanup to reset scrolling behavior
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [modal]);
 
     return (
         <Modal modal={modal} setModal={setModal}>

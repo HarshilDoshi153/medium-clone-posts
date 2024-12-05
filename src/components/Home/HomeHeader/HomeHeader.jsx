@@ -8,14 +8,12 @@ import { Link, useLocation } from 'react-router-dom';
 import Search from './Search';
 import Modal from '../../../utils/Modal';
 import UserModal from './UserModal';
-import Preview from './Write/Preview';
 import { Blog } from '../../../Context/Context';
-import useFetch from '../../hooks/useFetch';
 
 const HomeHeader = () => {
   const [modal, setModal] = useState(false);
   const [searchModal, setSearchModal] = useState(false);
-  const {setPublish} = Blog();
+  const {setPublish, currentUser} = Blog();
   const { pathname } = useLocation();
   return (
     <header className='border-b border-gray-400'>
@@ -43,7 +41,7 @@ const HomeHeader = () => {
             <span className='text-3xl'><IoMdNotificationsOutline /></span>
           </Link>
           <div className='flex items-center relative cursor-pointer'>
-            <img onClick={() => setModal(true)} className='w-9 rounded-full  object-cover' src='src\assets\profile.jpg' alt='Profile' />
+            <img onClick={() => setModal(true)} className='w-9 rounded-full  object-cover' src={currentUser.photoURL} alt='Profile' />
             <span className='text-black hover:text-banner'>
               <MdKeyboardArrowDown />
             </span>

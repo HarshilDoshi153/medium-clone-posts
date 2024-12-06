@@ -23,8 +23,10 @@ export const formatDate = (created) => {
   // Get the day of the month
   const day = date.getDate();
 
+  const year = date.getFullYear();
+
   // Format the result as "MMM DD"
-  const formattedDate = `${month} ${day}`;
+  const formattedDate = `${month} ${day}, ${year}`;
   return formattedDate;
 }
 

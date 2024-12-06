@@ -30,7 +30,7 @@ const HomeHeader = () => {
             className='flex sm:hidden text-3xl text-black cursor-pointer hover:text-banner'>
             <CiSearch />
           </span>
-          {pathname === "/write" ? <button onClick={()=> setPublish(true)} className='btn bg-green-600 text-gray-200 px-3 py-2 rounded-lg hover:bg-green-800'>Publish</button> :
+          {pathname === "/write" ? <button onClick={()=> setPublish(true)} className=' text-green-800 py-2 px-5 rounded-full border border-green-800 hover:bg-green-800 hover:text-white transition-all duration-500'>Publish</button> :
             <Link to={"/write"} className='hidden md:flex items-center gap-1 text-black hover:text-banner'>
               <span className='text-3xl'>
                 <LiaEditSolid />

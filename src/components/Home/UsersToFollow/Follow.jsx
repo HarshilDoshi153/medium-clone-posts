@@ -5,9 +5,8 @@ import FollowBtn from './FollowBtn';
 
 const Follow = () => {
   const { data, loading } = useFetch("users");
-  const [count, setCount] = useState(4);
   const { currentUser } = Blog();
-  const users = data && data?.slice(0, count).filter((user) => user.userId !== currentUser?.uid);
+  const users = data && data?.filter((user) => user.userId !== currentUser?.uid);
   return (
     <>
       {data && users?.map((user, i) => {

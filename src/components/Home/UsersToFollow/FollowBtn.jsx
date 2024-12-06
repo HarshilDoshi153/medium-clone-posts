@@ -30,7 +30,6 @@ const FollowBtn = ({userId}) => {
           await setDoc(FollowRef,
             {
               userId,
-
             });
             toast.success("User is Followed");
         }

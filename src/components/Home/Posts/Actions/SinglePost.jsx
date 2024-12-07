@@ -85,7 +85,7 @@ const SinglePost = () => {
             <div className="mt-[3rem]">
               {postImg && (
                 <img
-                  className="w-full h-[400px] object-cover"
+                  className="w-full h-full object-cover"
                   src={postImg}
                   alt="post-img"
                 />

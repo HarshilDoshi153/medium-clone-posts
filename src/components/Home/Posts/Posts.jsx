@@ -17,7 +17,6 @@ const Posts = ({ userId, posts }) => {
   const filteredPosts = allPosts.filter((post) =>
     follows.some((follow) => follow.userId === post.UserId)
   );
-  console.log(filteredPosts);
   return (
     <section className="flex flex-col gap-[2.5rem]">
       {filteredPosts.slice(0, posts).map((post, i) => (

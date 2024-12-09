@@ -47,6 +47,7 @@ const Auth = ({ modal, setModal }) => {
         try {
             const createUser = await signInWithPopup(auth, githubProvider);
             const newUser = createUser.user;
+            console.log(newUser.reloadUserInfo);
 
             const ref = doc(db, "users", newUser.uid);
             const userDoc = await getDoc(ref);
@@ -54,7 +55,7 @@ const Auth = ({ modal, setModal }) => {
             if (!userDoc.exists()) {
                 await setDoc(ref, {
                     userId: newUser.uid,
-                    userName: newUser.displayName || "GitHub User",
+                    userName: newUser.reloadUserInfo.providerUserInfo[0].screenName || "GitHub User",
                     email: newUser.email,
                     userImg: newUser.photoURL || "",
                     bio: "",

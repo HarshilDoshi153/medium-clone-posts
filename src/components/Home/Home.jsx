@@ -5,7 +5,7 @@ import { Blog } from '../../Context/Context'
 
 const Home = () => {
   const {currentUser} = Blog();
-  // console.log(currentUser.uid)
+  // console.log(currentUser.reloadUserInfo.providerUserInfo[0].screenName)
   return (
     <section className='size flex gap-[5rem] relative'>
       <div className='flex-[2] py-10 mb-[4rem]'>

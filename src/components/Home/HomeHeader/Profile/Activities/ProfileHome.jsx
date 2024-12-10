@@ -18,7 +18,11 @@ const ProfileHome = () => {
         <Loading />
       ) : (
         <section className="flex flex-col gap-[2.5rem] w-full">
-          {myPosts && myPosts.map((post, i) => <PostCard post={post} key={i} />)}
+          {myPosts && myPosts.length > 0 ? (
+            myPosts.map((post, i) => <PostCard post={post} key={i} />)
+          ) : (
+            <p className="text-center text-gray-500">No Posts</p> // Message for no posts
+          )}
         </section>
       )}
     </>

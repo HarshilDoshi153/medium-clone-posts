@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import ProfileHome from './Activities/ProfileHome';
-import ProfileLists from './Activities/ProfileLists';
 import ProfileAbout from './Activities/ProfileAbout';
 import { LiaTimesSolid } from 'react-icons/lia';
 import { IoSettingsSharp } from 'react-icons/io5';
@@ -9,30 +8,38 @@ import { discoverActions } from '../../../../data';
 import { Blog } from '../../../../Context/Context';
 import EditProfile from './EditProfile';
 import { useParams } from 'react-router-dom';
+import useSingleFetch from '../../../hooks/useSingleFetch';
+import ProfileFollowings from './Activities/ProfileFollowings';
+// import ProfileFollowers from './Activities/ProfileFollowers';
 
 const Profile = () => {
+  // const [loading, setLoading] = useState(false)
+  const { allUsers } = Blog();
+  const { userId } = useParams();
+  const getFollowingsData = useSingleFetch("users", userId, "follows");
   const activities = [
     {
       title: "Home",
       comp: ProfileHome
     },
     {
-      title: "Lists",
-      comp: ProfileLists
+      title: `${getFollowingsData.data.length} Followings`,
+      comp: ProfileFollowings
     },
+    // {
+    //   title: "Followers",
+    //   comp: ProfileFollowers
+    // },
     {
       title: "About",
       comp: ProfileAbout
     }
   ];
-
-  // const [loading, setLoading] = useState(false)
-  const { allUsers } = Blog();
-  const { userId } = useParams();
   const [currentActive, setCurrentActive] = useState(activities[0]);
   const [modal, setModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
   const getUserData = allUsers.find((user) => user.userId === userId);
+
 
   // Handle scrolling based on editModal state
   useEffect(() => {
@@ -52,8 +59,7 @@ const Profile = () => {
       <div className='mt-[9rem] flex-[2]'>
         <div className='flex items-center gap-4'>
           <h2 className='text-3xl sm:text-5xl font-bold capitalize'>{getUserData?.userName}</h2>
-          <p className='text-gray-500 text-xs sm:text-sm'>Followers(2)</p>
-          <p className='text-gray-500 text-xs sm:text-sm'>Followings(2)</p>
+          <p className='mt-6 text-gray-500 text-xs sm:text-sm'>Followings({getFollowingsData.data.length})</p>
         </div>
         <div className='flex items-center gap-5 mt-[3rem] border-b border-gray-300 mb-[3rem]'>
           {activities.map((item) => (
@@ -62,7 +68,7 @@ const Profile = () => {
             </div>
           ))}
         </div>
-        <currentActive.comp getUserData={getUserData} setEditModal={setEditModal} />
+        <currentActive.comp getUserData={getUserData} setEditModal={setEditModal} getFollowingsData={getFollowingsData} allUsers={allUsers}/>
       </div>
       <button onClick={() => setModal(true)} className='fixes top-[8rem] right-0 w-[2rem] h-[2rem] bg-black text-white grid items-center justify-center rounded-lg md:hidden'>
         <IoSettingsSharp />

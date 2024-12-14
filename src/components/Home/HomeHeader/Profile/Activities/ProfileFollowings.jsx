@@ -1,5 +1,4 @@
 import React from 'react'
-import { Navigate } from 'react-router-dom';
 import FollowBtn from '../../../UsersToFollow/FollowBtn';
 import Loading from '../../../../Demo/Loading';
 
@@ -8,8 +7,6 @@ const ProfileFollowings = ({ getFollowingsData, allUsers }) => {
     const { data, loading } = getFollowingsData;
     const followingIds = data?.map(following => following.userId);
     const followingsData = allUsers?.filter(user => followingIds.includes(user.userId));
-    // console.log(followingsData);
-
     return (
         <>
             {loading ? (

@@ -10,7 +10,7 @@ import EditProfile from './EditProfile';
 import { useParams } from 'react-router-dom';
 import useSingleFetch from '../../../hooks/useSingleFetch';
 import ProfileFollowings from './Activities/ProfileFollowings';
-// import ProfileFollowers from './Activities/ProfileFollowers';
+import ProfileFollowers from './Activities/ProfileFollowers';
 
 const Profile = () => {
   // const [loading, setLoading] = useState(false)
@@ -26,10 +26,10 @@ const Profile = () => {
       title: `${getFollowingsData.data.length} Followings`,
       comp: ProfileFollowings
     },
-    // {
-    //   title: "Followers",
-    //   comp: ProfileFollowers
-    // },
+    {
+      title: "Followers",
+      comp: ProfileFollowers
+    },
     {
       title: "About",
       comp: ProfileAbout
@@ -60,6 +60,7 @@ const Profile = () => {
         <div className='flex items-center gap-4'>
           <h2 className='text-3xl sm:text-5xl font-bold capitalize'>{getUserData?.userName}</h2>
           <p className='mt-6 text-gray-500 text-xs sm:text-sm'>Followings({getFollowingsData.data.length})</p>
+          <p className='mt-6 text-gray-500 text-xs sm:text-sm'>Followers({getFollowingsData.data.length})</p>
         </div>
         <div className='flex items-center gap-5 mt-[3rem] border-b border-gray-300 mb-[3rem]'>
           {activities.map((item) => (

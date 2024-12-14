@@ -10,6 +10,7 @@ const Context = ({children}) => {
     const [loader, setLoader] = useState(true);
     const [publish, setPublish] = useState(false);
     const [allUsers, setAllUsers] = useState([]);
+    const [allPosts, setAllPosts] = useState([]);
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (user)=>{
             if(user){
@@ -37,8 +38,23 @@ const Context = ({children}) => {
       };
       getUsers();
     },[])
+
+    useEffect(() =>{
+      const getPosts = () =>{
+        const postsRef = query(collection(db, "posts"));
+        onSnapshot(postsRef, (snapshot) =>{
+          setAllPosts(
+            snapshot.docs.map((doc) =>({
+              ...doc.data(),
+              id: doc.id,
+            }))
+          )
+        })
+      };
+      getPosts();
+    },[])
   return (
-    <BlogContext.Provider value={{currentUser, setCurrentUser, publish, setPublish, allUsers}}>
+    <BlogContext.Provider value={{currentUser, setCurrentUser, publish, setPublish, allUsers, allPosts}}>
       {loader ? <Loading/> : children}
     </BlogContext.Provider>
   )

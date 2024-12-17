@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Logo from '../../assets/PenHub.png';
 import { Link } from 'react-router-dom';
 import { nav } from '../../data';
 import Auth from './Auth/Auth';
@@ -17,7 +18,7 @@ const DemoHeader = () => {
     <header className={`border-b border-black sticky top-0 z-50 ${isActive ? "bg-white" : "bg-banner"} transition-all duration-500 `}>
       <div className='size h-70px flex items-center justify-between'>
         <Link to={"/"}>
-            <img src="/src/assets/PenHub.png" className='h-[3.5rem]' alt="logo" />
+            <img src={Logo} className='h-[3.5rem]' alt="logo" />
         </Link>
       <div className='flex items-center gap-5'>
         <div className='hidden text-sm sm:flex items-center gap-5'>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BsMedium } from 'react-icons/bs';
+import Logo from '../../../assets/PenHub.png';
 import { CiSearch } from 'react-icons/ci';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { LiaEditSolid } from 'react-icons/lia';
@@ -20,7 +20,7 @@ const HomeHeader = () => {
       <div className='size h-[60px] flex items-center justify-between'>
         <div className='flex items-center gap-3'>
           <Link to={"/"}>
-            <img src="/src/assets/PenHub.png" className='h-[3.5rem]' alt="logo" />
+            <img src={Logo} className='h-[3.5rem]' alt="logo" />
           </Link>
           <Search modal={searchModal} setModal={setSearchModal} />
         </div>

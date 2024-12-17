@@ -3,15 +3,17 @@ import useFetch from '../../hooks/useFetch';
 import { formatDate, readTime } from '../../../utils/helper';
 import SavedPost from './Actions/SavedPost';
 import { useNavigate } from 'react-router-dom';
+import { Blog } from '../../../Context/Context';
 
 const PostCard = ({ post }) => {
     const { title, description, postImg, created, id: id, UserId } = post;
     const { data, loading } = useFetch("users")
     const getUserData = data && data.find((user) => user?.id === UserId)
+    const {currentUser} = Blog();
     const navigate = useNavigate();
     return (
         <>
-            <div onClick={() => navigate(`/post/${id}`)} className='flex flex-col sm:flex-row gap-4 cursor-pointer border-b py-2 border-gray-400'>
+            <div onClick={() => currentUser && navigate(`/post/${id}`)} className='flex flex-col sm:flex-row gap-4 cursor-pointer border-b py-2 border-gray-400'>
                 <div className='flex-[2.5rem] flex flex-col justify-between'>
                     <div>
                         <p className='pb-2 font-semibold capitalize'>{getUserData.userName}</p>

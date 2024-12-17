@@ -13,14 +13,14 @@ import { Blog } from '../../../Context/Context';
 const HomeHeader = () => {
   const [modal, setModal] = useState(false);
   const [searchModal, setSearchModal] = useState(false);
-  const {setPublish, currentUser} = Blog();
+  const { setPublish, currentUser } = Blog();
   const { pathname } = useLocation();
   return (
     <header className='border-b border-gray-400'>
       <div className='size h-[60px] flex items-center justify-between'>
         <div className='flex items-center gap-3'>
           <Link to={"/"}>
-            <span className='text-7xl'><BsMedium /></span>
+            <img src="/src/assets/PenHub.png" className='h-[3.5rem]' alt="logo" />
           </Link>
           <Search modal={searchModal} setModal={setSearchModal} />
         </div>
@@ -30,7 +30,7 @@ const HomeHeader = () => {
             className='flex sm:hidden text-3xl text-black cursor-pointer hover:text-banner'>
             <CiSearch />
           </span>
-          {pathname === "/write" ? <button onClick={()=> setPublish(true)} className=' text-green-800 py-2 px-5 rounded-full border border-green-800 hover:bg-green-800 hover:text-white transition-all duration-500'>Publish</button> :
+          {pathname === "/write" ? <button onClick={() => setPublish(true)} className=' text-green-800 py-2 px-5 rounded-full border border-green-800 hover:bg-green-800 hover:text-white transition-all duration-500'>Publish</button> :
             <Link to={"/write"} className='hidden md:flex items-center gap-1 text-black hover:text-banner'>
               <span className='text-3xl'>
                 <LiaEditSolid />

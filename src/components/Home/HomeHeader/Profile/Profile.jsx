@@ -86,7 +86,7 @@ const Profile = () => {
             <img className='w-[3.5rem] h-[3.5rem] object-cover rounded-full' src={getUserData?.userImg} alt='profile' />
             <h2 className='py-2 font-bold capitalize'>{getUserData?.userName ? getUserData.userName : getUserData ? "Unknown User" : "Loading..."}</h2>
             <p className='text-gray-500 first-letter:uppercase text-sm'>{getUserData?.bio ? getUserData.bio : getUserData ? `${getUserData.userName} has no bio` : "Loading..."}</p>
-            <button onClick={() => setEditModal(true)} className='text-green-700 pt-6 text-sm w-fit'>Edit Profile</button>
+            <button onClick={() => setEditModal(true)} className='text-green-500 pt-6 text-sm w-fit hover:text-green-900'>Edit Profile</button>
             <div className='flex-[1] flex items-center flex-wrap gap-3 pt-8'>
               {discoverActions.map((item) => (
                 <button key={item} className='text-sm text-black1'>{item}</button>

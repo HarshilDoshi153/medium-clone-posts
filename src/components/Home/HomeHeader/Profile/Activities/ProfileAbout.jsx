@@ -7,7 +7,7 @@ const ProfileAbout = ({getUserData, setEditModal}) => {
       {getUserData?.bio ? getUserData.bio : getUserData ? `${getUserData.userName} has no bio` : "Loading..."}
       </p>
       <div className="text-right">
-        <button onClick={() => setEditModal(true)} className='border border-black py-2 px-5 rounded-full text-black mt-[3rem]'>Edit</button>
+        <button onClick={() => setEditModal(true)} className='border border-black py-2 px-5 rounded-full text-black mt-[3rem] hover:bg-gray-200'>Edit</button>
       </div>
     </div>
   )

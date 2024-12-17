@@ -92,13 +92,13 @@ const EditProfile = ({ editModal, setEditModal, getUserData }) => {
         <div className='flex items-center justify-end gap-4 pt-[2rem]'>
           <button
             onClick={() => setEditModal(false)}
-            className='border border-green-800 text-green-800 py-2 px-5 rounded-full'
+            className='border border-green-800 text-green-800 py-2 px-5 rounded-full  hover:text-green-900 hover:border-green-900'
           >
             Cancel
           </button>
           <button
             onClick={saveForm}
-            className='bg-green-800 text-white py-2 px-5 rounded-full border border-green-800'
+            className='bg-green-800 text-white py-2 px-5 rounded-full border border-green-800 hover:bg-green-900 hover:border-green-900'
           >
             Save
           </button>
